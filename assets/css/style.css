@@ -20,13 +20,15 @@ body, html {
 .interface {
     background: yellow;
     height: 60%;
+    display: flex;
 }
 
 .debt, .graphic, .score {
-    width: 33%;
+    width: 34%;
     height: 100%;
     display: inline-block;
     background: orange;
+    margin: 0;
 }
 
 .safe, .safe-img {
