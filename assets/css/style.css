@@ -18,12 +18,35 @@ body, html {
 /* Sherrif Graphic */
 
 .sherrif {
+    display: inline-block;
     height: 40%;
+    width: 80%;
 }
 
 .sleeping-sherrif {
     width: 100%;
     height: 100%;
+}
+
+/* Wins and Losses */
+
+.wins-losses {
+    display: inline;
+    float: right;
+    height: 40%;
+    width: 20%;
+    background: rgba(194, 194, 194 , .2);
+}
+
+.wins, .losses, .wins-num, .loss-num {
+    box-sizing: border-box;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    font-family: 'Rye';
+    font-size: 20px;
+    color: wheat;
+    padding-top: 30px;
 }
 
 /* Game Interface */
@@ -44,7 +67,9 @@ body, html {
 
 .ransom, .score {
     padding: 100px 10px 0px 10px;
+    box-sizing: border-box;
 }
+
 .heading, .display {
     width: 100%;
     font-size: 50px;
