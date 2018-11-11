@@ -4,6 +4,7 @@
 
 // global variables
 let ransomNum = Math.floor(Math.random() * 120);
+let gemNum = Math.floor(Math.random() * 12);
 
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -24,10 +25,69 @@ function pickettRansom () {
     }
 }
 
+// adds random value to gems
+
+function gemValue () {
+
+    while (gemNum === 0) {
+        gemNum = Math.floor(Math.random() * 12);
+        if (gemNum !== 0) {
+            $("#gem1").val(gemNum);
+            console.log("gem1 value is " + gemNum);
+            break;
+        }
+    }
+
+    do {
+        gemNum = Math.floor(Math.random() * 12);
+    }
+    while (gemNum === 0) {
+        gemNum = Math.floor(Math.random() * 12);
+        if (gemNum !== 0) {
+            $("#gem2").val(gemNum);
+            console.log("gem2 value is " + gemNum);
+            break;
+        }
+    }
+
+    do {
+        gemNum = Math.floor(Math.random() * 12);
+    }
+    while (gemNum === 0) {
+        gemNum = Math.floor(Math.random() * 12);
+        if (gemNum !== 0) {
+            $("#gem3").val(gemNum);
+            console.log("gem3 value is " + gemNum);
+            break;
+        }
+    }
+
+    do {
+        gemNum = Math.floor(Math.random() * 12);
+    }
+    while (gemNum === 0) {
+        gemNum = Math.floor(Math.random() * 12);
+        if (gemNum !== 0) {
+            $("#gem4").val(gemNum);
+            console.log("gem4 value is " + gemNum);
+            break;
+        }
+    }
+
+}
+
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // GAME MECHANICS
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+// DONT FORGET DOCUMENT.READY
+
+
 pickettRansom();
+
 $("#ransom-number").text(ransomNum);
+
+gemValue();
+
+
 
