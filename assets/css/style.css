@@ -1,0 +1,61 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: green;
+}
+
+.container {
+    background: blue;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.sherrif {
+    background: red;
+    height: 40%;
+}
+
+.interface {
+    background: yellow;
+    height: 60%;
+}
+
+.debt, .graphic, .score {
+    width: 33%;
+    height: 100%;
+    display: inline-block;
+    background: orange;
+}
+
+.safe, .safe-img {
+    width: 100%;
+    height: 100%;
+}
+
+.gems{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
+
+.top-shelf, .bottom-shelf {
+    width: 100%;
+    height: 50%;
+    padding: 0 10% 0 10%;
+}
+
+.gem1, .gem2, .gem3, .gem4 {
+    width: 40%;
+    height: 100%;
+    display: inline-block;
+}
+
+.gem1-img, .gem2-img, .gem3-img, .gem4-img {
+    width: 100%;
+    height: 100%;
+}
