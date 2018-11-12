@@ -109,6 +109,14 @@ function intialiseGame () {
 
 intialiseGame();
 
+// ToDo:
+//  - add gem onclick sound effects
+//  - create main menu css (title, start button, music)
+//  - create prolouge css (scrolling type, skip button, start button, wife img animation)
+//  - create end game css
+//      = loss: so long partner, jail, try again, main menu, loss++
+//      = win: good job cowboy, your wife, play again, main menu, win++
+//  - document.ready the whole thing
 
 
 
