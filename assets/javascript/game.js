@@ -3,12 +3,13 @@
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // global variables
-let ransomNum = Math.floor(Math.random() * 120);
-let gemNum1 = Math.floor(Math.random() * 12);
-let gemNum2 = Math.floor(Math.random() * 12);
-let gemNum3 = Math.floor(Math.random() * 12);
-let gemNum4 = Math.floor(Math.random() * 12);
+let ransomNum = Math.floor((Math.random() * 120) + 19);
+let gemNum1 = Math.floor((Math.random() * 12) + 1);
+let gemNum2 = Math.floor((Math.random() * 12) + 1);
+let gemNum3 = Math.floor((Math.random() * 12) + 1);
+let gemNum4 = Math.floor((Math.random() * 12) + 1);
 let stolen = 0;
+var sound = document.getElementById("gemClink");
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // FUNCTIONS
@@ -18,49 +19,24 @@ let stolen = 0;
 
 // picks random number between 19 and 120
 function pickettRansom () {
-    while (ransomNum < 19) {
-        ransomNum = Math.floor(Math.random() * 120);
-        if (ransomNum > 19) {
-            $("#ransom-number").text(ransomNum);
-            break;
-        }
-    }
+    $("#ransom-number").text(ransomNum);
 }
 
 // adds random value to gems
 function gemValue () {
 
-    while (gemNum1 === 0) {
-        gemNum1 = Math.floor(Math.random() * 12);
-        if (gemNum1 !== 0) {
-            $("#gem1").val(gemNum1);
-            break;
-        }
-    }
+    $("#gem1").val(gemNum1);
+    console.log("gem1: " + gemNum1);
 
-    while (gemNum2 === 0) {
-        gemNum2 = Math.floor(Math.random() * 12);
-        if (gemNum2 !== 0) {
-            $("gem2").val(gemNum2);
-            break;
-        }
-    }
+    $("gem2").val(gemNum2);
+    console.log("gem2: " + gemNum2);
 
-    while (gemNum3 === 0) {
-        gemNum3 = Math.floor(Math.random() * 12);
-        if (gemNum3 !== 0) {
-            $("gem3").val(gemNum3);
-            break;
-        }
-    }
 
-    while (gemNum4 === 0) {
-        gemNum4 = Math.floor(Math.random() * 12);
-        if (gemNum4 !== 0) {
-            $("gem4").val(gemNum3);
-            break;
-        }
-    }
+    $("gem3").val(gemNum3);
+    console.log("gem3: " + gemNum3);
+
+    $("gem4").val(gemNum4);
+    console.log("gem4: " + gemNum4);
 
 }
 
@@ -68,21 +44,25 @@ function gemValue () {
 function stolenGems () {
 
     $(".gem1").click(function () {
+        sound.play();
         stolen = gemNum1 + stolen;
         $("#amount-stolen").text(stolen);
     });
 
     $(".gem2").click(function () {
+        sound.play();        
         stolen = gemNum2 + stolen;
         $("#amount-stolen").text(stolen);
     });
 
     $(".gem3").click(function () {
+        sound.play();        
         stolen = gemNum3 + stolen;
         $("#amount-stolen").text(stolen);
     });
 
     $(".gem4").click(function () {
+        sound.play();        
         stolen = gemNum4 + stolen;
         $("#amount-stolen").text(stolen);
     });
