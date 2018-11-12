@@ -74,7 +74,19 @@ body, html {
     float: left;
     width: 50%;
     height: 100%;
-    background: yellow;
+    background-image: url("../images/ransom-note.png");
+    background-size: cover;
+}
+
+@font-face {
+    font-family: "Tkachenko";
+    src:url("../font/Tkachenko_Sketch_4F/TkachenkoSketch4F-Regular.ttf");
+}
+
+.ransom-text {
+    font-family: "Tkachenko";
+    font-size: 30px;
+    padding: 70px 30px 30px 60px;
 }
 
 .instructions {
@@ -82,7 +94,31 @@ body, html {
     float: right;
     width: 50%;
     height: 100%;
-    background: red;
+}
+
+.instructions-text {
+    padding: 50px 20px 0px 50px;
+    color: wheat;
+    font-family: 'Neucha';
+    line-height: 25px;
+    font-size: 20px;
+}
+
+.play-button {
+    float: right;
+    border: none;
+    background-color: wheat;
+    color: rgba(0, 0, 0, .8);
+    font-family: 'Neucha';
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 12px;
+    text-align: center;
+    outline: none;
+}
+
+.play-button:hover {
+    background-color: rgb(207, 179, 138);
 }
 
 
