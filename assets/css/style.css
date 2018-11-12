@@ -7,13 +7,86 @@ body, html {
     background: black;
 }
 
-/* Game Container */
+/* Game Containers */
 
-.container, .playable {
+.container, .playable, .main-menu, .prologue {
     height: 100%;
     width: 90%;
     margin: 0 auto;
 }
+
+.playable {
+    display: none;
+}
+
+ .main-menu {
+    display: none;
+}
+
+/***************** MAIN MENU ***************/
+
+.main-menu {
+    background-image: url("../images/menu.jpg");
+    background-size: cover;
+    font-size: 100px;
+    font-family: 'Rye';
+    color:navajowhite;
+}
+
+.high {
+    padding-top: 50px;
+    padding-left: 80px;
+}
+
+.noon {
+    padding-top: 10px;
+    padding-left: 300px;
+
+}
+
+.heist {
+    padding-left: 550px;
+}
+
+.menu-btn {
+    text-align: center;
+}
+
+.start {
+    background-color: navajowhite;
+    border: none;
+    color: rgba(0, 0, 0, .8);
+    font-family: 'Rye';
+    font-size: 50px;
+    padding: 15px 32px;
+    border-radius: 12px;
+}
+
+.start:hover {
+    background-color: rgb(207, 179, 138);
+    box-shadow: 5px 20px 5px 20px rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+/***************** PROLOGUE ***************/
+
+.ransom-note {
+    display: inline-block;
+    float: left;
+    width: 50%;
+    height: 100%;
+    background: yellow;
+}
+
+.instructions {
+    display: inline-block;
+    float: right;
+    width: 50%;
+    height: 100%;
+    background: red;
+}
+
+
+/***************** PLAYABLE ***************/
 
 /* Sherrif Graphic */
 
@@ -48,8 +121,6 @@ body, html {
     color: wheat;
     padding-top: 30px;
 }
-
-/* Game Interface */
 
 .interface {
     height: 60%;

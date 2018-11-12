@@ -9,11 +9,16 @@ let gemNum2 = Math.floor((Math.random() * 12) + 1);
 let gemNum3 = Math.floor((Math.random() * 12) + 1);
 let gemNum4 = Math.floor((Math.random() * 12) + 1);
 let stolen = 0;
-var sound = document.getElementById("gemClink");
+var soundEffect = document.getElementById("gemClink");
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // FUNCTIONS
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Main Menu
+
+// Prologue
+
 
 // Gameplay
 
@@ -26,43 +31,35 @@ function pickettRansom () {
 function gemValue () {
 
     $("#gem1").val(gemNum1);
-    console.log("gem1: " + gemNum1);
-
     $("gem2").val(gemNum2);
-    console.log("gem2: " + gemNum2);
-
-
     $("gem3").val(gemNum3);
-    console.log("gem3: " + gemNum3);
-
     $("gem4").val(gemNum4);
-    console.log("gem4: " + gemNum4);
 
 }
 
-// add gem values to amount stolen
+// add gem values to amount stolen and plays clink
 function stolenGems () {
 
     $(".gem1").click(function () {
-        sound.play();
+        soundEffect.play();
         stolen = gemNum1 + stolen;
         $("#amount-stolen").text(stolen);
     });
 
     $(".gem2").click(function () {
-        sound.play();        
+        soundEffect.play();        
         stolen = gemNum2 + stolen;
         $("#amount-stolen").text(stolen);
     });
 
     $(".gem3").click(function () {
-        sound.play();        
+        soundEffect.play();        
         stolen = gemNum3 + stolen;
         $("#amount-stolen").text(stolen);
     });
 
     $(".gem4").click(function () {
-        sound.play();        
+        soundEffect.play();        
         stolen = gemNum4 + stolen;
         $("#amount-stolen").text(stolen);
     });
@@ -90,7 +87,6 @@ function intialiseGame () {
 intialiseGame();
 
 // ToDo:
-//  - add gem onclick sound effects
 //  - create main menu css (title, start button, music)
 //  - create prolouge css (scrolling type, skip button, start button, wife img animation)
 //  - create end game css
