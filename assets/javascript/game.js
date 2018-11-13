@@ -28,7 +28,7 @@ let loss = 0;
 var highNoonHeist = {
 
     // opens the prolouge from main menu start button
-    enterPrologue : function () {
+    enterPrologue: function () {
         $(".start").click(function () {
             $(".main-menu").css("display", "none");
             $(".prologue").fadeIn();
@@ -36,32 +36,48 @@ var highNoonHeist = {
     },
 
     // enters playable from prologue play button and resets variables
-    enterPlayable : function () {
+    enterPlayable: function () {
+        // when the play button is clicked...
         $(".play-button").click(function () {
-            // hide the prologue, fade in playable
+            // hide the prologue
             $(".prologue").css("display", "none");
+            // reset all variables
+            highNoonHeist.resetScore();
+            highNoonHeist.initialiseGame();
+            // fade in playable
             $(".playable").fadeIn();
-            // reset score (win/loss) to 0
-            wins = 0;
-            $(".wins-num").text(wins);
-            loss = 0;
-            $(".loss-num").text(loss);
-            // pick a new ransom
-            ransomNum = Math.floor((Math.random() * 120) + 19);
-            $("#ransom-number").text(ransomNum);
-            // assign gem values
-            $(".gem1").val(gemNum1);
-            $(".gem2").val(gemNum2);
-            $(".gem3").val(gemNum3);
-            $(".gem4").val(gemNum4);
-            // set amount stolen to 0
-            stolen = 0;
-            $("#amount-stolen").text(stolen);
+            // allow user interactions
+            highNoonHeist.stolenGems();
         })
     },
 
-    // sets onclick function for gems, adds gem value to amount stolen
-    stolenGems : function () {
+    // -------------------------------------------------------------------------
+
+    // resets score (win/loss) to 0
+    resetScore: function () {
+        let win = 0;
+        $(".wins-num").text(win);
+        let loss = 0;
+        $(".loss-num").text(loss);
+    },
+    
+    // resets all variables except score
+    initialiseGame: function () {            
+        // pick a new ransom
+        ransomNum = Math.floor((Math.random() * 120) + 19);
+        $("#ransom-number").text(ransomNum);           
+        // assign new gem values
+        $(".gem1").val(gemNum1);
+        $(".gem2").val(gemNum2);
+        $(".gem3").val(gemNum3);
+        $(".gem4").val(gemNum4);            
+        // set amount stolen to 0
+        stolen = 0;
+        $("#amount-stolen").text(stolen);
+    },
+
+    // sets onclick function for gems, adds gem value to amount stolen, ends game for win or loss
+    stolenGems: function () {
         // when gem is clicked...
         $(".gem1").click(function () {
             // play sound effect
@@ -69,39 +85,65 @@ var highNoonHeist = {
             // add the gem value to the amount stolen and display the new value
             stolen = gemNum1 + stolen;
             $("#amount-stolen").text(stolen);
-            // run game over if the player goes over the ransom amount
+            // run "game over" if the player goes over the ransom amount
+            setTimeout(highNoonHeist.userLost, 1000);
         });
         $(".gem2").click(function () {
-            // play sound effect
             gemTake.play();
-            // add the gem value to the amount stolen and display the new value
             stolen = gemNum2 + stolen;
             $("#amount-stolen").text(stolen);
-            // run game over if the player goes over the ransom amount
+            setTimeout(highNoonHeist.userLost, 1000);
         });
         $(".gem3").click(function () {
-            // play sound effect
             gemTake.play();
-            // add the gem value to the amount stolen and display the new value
             stolen = gemNum3 + stolen;
             $("#amount-stolen").text(stolen);
-            // run game over if the player goes over the ransom amount
+            setTimeout(highNoonHeist.userLost, 1000);
         });
         $(".gem4").click(function () {
-            // play sound effect
             gemTake.play();
-            // add the gem value to the amount stolen and display the new value
             stolen = gemNum4 + stolen;
             $("#amount-stolen").text(stolen);
-            // run game over if the player goes over the ransom amount
+            setTimeout(highNoonHeist.userLost, 1000);
         });
+    },
+
+    // displays game over - loss
+    userLost: function () {
+        if (stolen > ransomNum) {
+            $(".playable").css("display", "none");
+            $(".endgame-loss").fadeIn();   
+        }
+    },
+
+    // augments losses and starts the game again
+    tryAgain: function () {
+        // when try again button is clicked...
+        $(".try-again").click(function () {
+            $(".endgame-loss").css("display", "none");
+            $(".playable").fadeIn();
+            loss++;
+            $(".loss-num").text(loss);
+            highNoonHeist.initialiseGame();
+        });
+    },
+
+    // goes back to main menu
+    mainMenu: function () {
+        $(".main").click(function () {
+            $(".endgame-loss").css("display", "none");
+            $(".main-menu").fadeIn();
+        })
     }
+
 
 }
 
 highNoonHeist.enterPrologue();
 highNoonHeist.enterPlayable();
 highNoonHeist.stolenGems();
+highNoonHeist.tryAgain();
+highNoonHeist.mainMenu();
 
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -116,10 +158,10 @@ highNoonHeist.stolenGems();
 
 // // ends the game on loss
 // function gameOver () {
-//     if (stolen > ransomNum) {
-//         $(".playable").css("display", "none");
-//         $(".endgame-loss").fadeIn();
-//     }   
+    // if (stolen > ransomNum) {
+    //     $(".playable").css("display", "none");
+    //     $(".endgame-loss").fadeIn();
+    // }   
 // }
 
 // // takes playerback to main menu
