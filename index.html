@@ -33,22 +33,18 @@
 
         <!-- Main Menu -->
         <div class="main-menu">
-
             <!-- Title -->
             <h1 class="high">High</h1>
             <h1 class="noon">Noon</h1>
             <h1 class="heist">Heist</h1>
-
             <!-- Start Button -->
             <div class="menu-btn">
                 <button class="start">Start</button>
             </div>
-
         </div>
 
         <!-- Prologue -->
         <div class="prologue">
-
             <!-- Ransom Note -->
             <div class="ransom-note">
                 <div class="ransom-text">
@@ -62,7 +58,7 @@
                     <h1>- The Pickett Boys</h1>
                 </div>
             </div>
-
+            <!-- Instructions -->
             <div class="instructions">
                 <div class="instructions-text">
                     <p>
@@ -93,43 +89,34 @@
                         5.	Each time the game starts, the value of the jewels and the ransom will change.   
                     </p>
                 </div>
-
+                <!-- Play Button -->
                 <div>
                     <button class="play-button">Play &#10152;</button>
                 </div>
-
             </div>
-
         </div>
 
         <!-- Playable -->
         <div class="playable">
-
             <!-- Sleeping Sherrif -->
             <div class="sherrif">
                 <img class="sleeping-sherrif" src="assets/images/sherrif3.jpg">
             </div>
-
             <!-- Wins and Losses -->
             <div class="wins-losses">
-
                 <!-- Wins -->
                 <div class="wins">
                     <h1>Wins:</h1>
                     <div class="wins-num">0</div>
                 </div>
-            
                 <!-- Losses -->
                 <div class="losses">
                     <h1>Losses:</h1>
                     <div class="loss-num">0</div>
                 </div>
-
             </div>
-
             <!-- Interface -->
             <div class="interface">
-
                 <!-- Goal Number -->
                 <div class="ransom">
                     <div class="heading">
@@ -139,15 +126,12 @@
                     <br>
                     <div class="display" id="ransom-number"></div>
                 </div>
-
                 <!-- Gem Buttons -->
                 <div class="graphic">
-
                     <!-- Sound Effects -->
                     <audio id="gemClink">
                         <source src="assets/sounds/clink.wav" type="audio/wav">
                     </audio>
-
                     <!-- Top Shelf -->
                     <div class="top-shelf">
                         <div class="gem1">
@@ -157,7 +141,6 @@
                             <img class="gem2-img" src="assets/images/gem2.png">
                         </div>
                     </div>
-
                     <!-- Bottom Shelf-->
                     <div class="bottom-shelf">
                         <div class="gem3">
@@ -169,7 +152,6 @@
                     </div>
 
                 </div>
-
                 <!-- Current Score -->
                 <div class="score">                
                     <div class="heading">
@@ -179,8 +161,22 @@
                     <br>
                     <div class="display" id="amount-stolen"></div>
                 </div>
-
             </div>
+        </div>
+
+        <!-- End Game - Loss -->
+        <div class="endgame-loss">
+            <h1 class="endgame-loss-header">So long, partner.</h1>
+            <img class="jail" src="assets/images/jail.jpeg">
+            <p class="endgame-loss-text">Looks like you're going to the big house.</p>
+            <div class="buttons">
+                <button class="main">Main Menu</button>
+                <button class="try-again">Try Again?</button>
+            </div>
+        </div>
+
+        <!-- End Game - Win -->
+        <div class="endgame-win">
 
         </div>
 

@@ -15,10 +15,14 @@ var soundEffect = document.getElementById("gemClink");
 // FUNCTIONS
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// Main Menu
-
 // Prologue
 
+function enterPrologue () {
+    $(".start").click(function () {
+        $(".main-menu").css("display", "none");
+        $(".prologue").fadeIn();
+    })
+}
 
 // Gameplay
 
@@ -37,6 +41,16 @@ function gemValue () {
 
 }
 
+// ends the game on loss
+function gameOver () {
+
+    if (stolen > ransomNum) {
+        $(".playable").css("display", "none");
+        $(".endgame-loss").fadeIn();
+    }
+    
+}
+
 // add gem values to amount stolen and plays clink
 function stolenGems () {
 
@@ -44,39 +58,54 @@ function stolenGems () {
         soundEffect.play();
         stolen = gemNum1 + stolen;
         $("#amount-stolen").text(stolen);
+        setTimeout(gameOver, 1000);
     });
 
     $(".gem2").click(function () {
         soundEffect.play();        
         stolen = gemNum2 + stolen;
         $("#amount-stolen").text(stolen);
+        setTimeout(gameOver, 1000);
     });
 
     $(".gem3").click(function () {
         soundEffect.play();        
         stolen = gemNum3 + stolen;
         $("#amount-stolen").text(stolen);
+        setTimeout(gameOver, 1000);
     });
 
     $(".gem4").click(function () {
         soundEffect.play();        
         stolen = gemNum4 + stolen;
         $("#amount-stolen").text(stolen);
-    });
+        setTimeout(gameOver, 1000);
+    });  
 }
 
 // starts the game
 function intialiseGame () {
-    // sets random number for ransom
-    pickettRansom();
-    $("#ransom-number").text(ransomNum);
-    // sets random number for gem value
-    gemValue();
-    // sets gem onclick
-    stolenGems();
-    // set amount stolen to 0
-    $("#amount-stolen").text(stolen);
+
+    // when play button is clicked...
+    $(".play-button").click(function () {
+       
+        // hide the prologue
+        $(".prologue").css("display", "none");
+        // display main game interface
+        $(".playable").fadeIn();
+        // sets random number for ransom
+        pickettRansom();
+        $("#ransom-number").text(ransomNum);
+        // sets random number for gem value
+        gemValue();
+        // sets gem onclick
+        stolenGems();
+        // set amount stolen to 0
+        $("#amount-stolen").text(stolen);
+        gameOver();
+    })
 }
+
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // GAME MECHANICS
@@ -84,15 +113,27 @@ function intialiseGame () {
 
 // DONT FORGET DOCUMENT.READY
 
+//displays the prologue when you press the start button
+enterPrologue();
+
+// starts main gameplay when prolouge "play" button is clicked
 intialiseGame();
 
+// screened displayed when player loses
+// gameOver();
+    console.log(ransomNum);
+    console.log(stolen);
+
+
+
 // ToDo:
-//  - create main menu css (title, start button, music)
-//  - create prolouge css (scrolling type, skip button, start button, wife img animation)
 //  - create end game css
 //      = loss: so long partner, jail, try again, main menu, loss++
 //      = win: good job cowboy, your wife, play again, main menu, win++
 //  - document.ready the whole thing
+// add music to main menu
+// add back button in prologue
+// add shout when sherrif wakes up - endgame-loss
 
 
 

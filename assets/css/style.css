@@ -9,17 +9,21 @@ body, html {
 
 /* Game Containers */
 
-.container, .playable, .main-menu, .prologue {
+.container, .playable, .main-menu, .prologue, .endgame-loss, .endgame-win {
     height: 100%;
     width: 90%;
     margin: 0 auto;
 }
 
+/* .main-menu {
+    display: none;
+} */
+
 .playable {
     display: none;
 }
 
- .main-menu {
+.prologue {
     display: none;
 }
 
@@ -70,7 +74,7 @@ body, html {
 /***************** PROLOGUE ***************/
 
 .ransom-note {
-    display: inline-block;
+    /* display: inline-block; */
     float: left;
     width: 50%;
     height: 100%;
@@ -90,7 +94,6 @@ body, html {
 }
 
 .instructions {
-    display: inline-block;
     float: right;
     width: 50%;
     height: 100%;
@@ -140,7 +143,6 @@ body, html {
 /* Wins and Losses */
 
 .wins-losses {
-    display: inline;
     float: right;
     height: 40%;
     width: 20%;
@@ -210,4 +212,56 @@ body, html {
 .gem1-img, .gem2-img, .gem3-img, .gem4-img {
     width: 100%;
     height: 100%;
+}
+
+/***************** END GAME ***************/
+
+.endgame-win {
+    display: none;
+}
+
+.endgame-loss {
+    display: none;
+}
+
+.endgame-loss-header {
+    text-align: center;
+    font-family: 'Rye';
+    color: navajowhite;
+    font-size: 50px;
+    padding-top: 40px;
+}
+
+.endgame-loss-text {
+    text-align: center;
+    font-family: 'Neucha';
+    color: navajowhite;
+    font-size: 30px;
+} 
+
+.jail {
+    display: block;
+    margin: 0 auto;
+    padding: 40px 0px 40px 0px;
+}
+
+.buttons {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.main, .try-again {
+    border: none;
+    background-color: wheat;
+    color: rgba(0, 0, 0, .8);
+    font-family: 'Rye';
+    font-size: 20px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 12px;
+    outline: none;
+    margin: 10px 10px 10px 10px;
+}
+
+.main:hover, .try-again:hover {
+    background-color: rgb(207, 179, 138);
 }
