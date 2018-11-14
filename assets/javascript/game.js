@@ -40,6 +40,7 @@ var highNoonHeist = {
             $(".main-menu").css("display", "none");
             // fade in the prologue
             $(".prologue").fadeIn();
+            console.log("Start Button Clicked");
         })
     },
 
@@ -48,14 +49,12 @@ var highNoonHeist = {
         $(".play-button").click(function () {
             // hide the prologue
             $(".prologue").css("display", "none");
+            console.log("Play Button Clicked");
             // reset all variables
             highNoonHeist.resetScore();
             highNoonHeist.initialiseGame();
             // fade in playable
             $(".playable").fadeIn();
-            // allow user interactions
-            highNoonHeist.stolenGems();
-            highNoonHeist.checker();
             // plays sound
             highNoonHeist.playSnore();
         })
@@ -76,17 +75,25 @@ var highNoonHeist = {
         $("#ransom-number").text(ransomNum);
         // assign new gem values
         // gem1
+        gemNum1 = 0;
         gemNum1 = Math.floor((Math.random() * 12) + 1);
         $(".gem1").val(gemNum1);
         // gem2
+        gemNum2 = 0;
         gemNum2 = Math.floor((Math.random() * 12) + 1);
         $(".gem2").val(gemNum2);
         // gem3
+        gemNum3 = 0;
         gemNum3 = Math.floor((Math.random() * 12) + 1);
         $(".gem3").val(gemNum3);
         // gem4
+        gemNum4 = 0;
         gemNum4 = Math.floor((Math.random() * 12) + 1);
         $(".gem4").val(gemNum4);
+        console.log("gem1: " + gemNum1);
+        console.log("gem2: " + gemNum2);
+        console.log("gem3: " + gemNum3);
+        console.log("gem4: " + gemNum4);
         // set amount stolen to 0
         stolen = 0;
         $("#amount-stolen").text(stolen);
@@ -105,6 +112,7 @@ var highNoonHeist = {
         $(".gem2").click(function () {
             gemTake.play();
             stolen = gemNum2 + stolen;
+            console.log("gem2: " + gemNum2);
             $("#amount-stolen").text(stolen);
         });
         $(".gem3").click(function () {
@@ -116,6 +124,7 @@ var highNoonHeist = {
             gemTake.play();
             stolen = gemNum4 + stolen;
             $("#amount-stolen").text(stolen);
+
         });
     },
 
@@ -154,6 +163,7 @@ var highNoonHeist = {
             highNoonHeist.initialiseGame();
             highNoonHeist.playTheme();
             highNoonHeist.playSnore();
+            console.log("Lost");
         });
     },
 
@@ -168,6 +178,7 @@ var highNoonHeist = {
             highNoonHeist.initialiseGame();
             highNoonHeist.playTheme();
             highNoonHeist.playSnore();
+            console.log("Won");
         });
     },
 
@@ -179,6 +190,7 @@ var highNoonHeist = {
             $(".main-menu").fadeIn();
             sleepySherrif.pause();
             highNoonHeist.playTheme();
+            console.log("Main Menu Clicked");
         })
     },
 
@@ -198,11 +210,24 @@ var highNoonHeist = {
 // FUNCTION CALLS
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+// plays theme music
 highNoonHeist.playTheme();
+
+// shows prologue/instructions
 highNoonHeist.enterPrologue();
+
+// enters game's main interface
 highNoonHeist.enterPlayable();
+
+// allows user interactions
+highNoonHeist.stolenGems();
+highNoonHeist.checker();
+
+// restarts the game after win/loss
 highNoonHeist.tryAgain();
 highNoonHeist.playAgain();
+
+// hard restart of game
 highNoonHeist.mainMenu();
 
 });
