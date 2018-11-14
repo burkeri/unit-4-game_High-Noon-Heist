@@ -57,8 +57,7 @@ var highNoonHeist = {
             highNoonHeist.stolenGems();
             highNoonHeist.checker();
             // plays sound
-            sleepySherrif.loop = true;
-            sleepySherrif.play();
+            highNoonHeist.playSnore();
         })
     },
 
@@ -77,24 +76,23 @@ var highNoonHeist = {
         // pick a new ransom
         ransomNum = Math.floor((Math.random() * 120) + 19);
         $("#ransom-number").text(ransomNum);
-
         // assign new gem values
+        // gem1
         gemNum1 = Math.floor((Math.random() * 12) + 1);
         $(".gem1").val(gemNum1);
-        console.log("gem1: " + gemNum1);
-
+        console.log(gemNum1);
+        // gem2
         gemNum2 = Math.floor((Math.random() * 12) + 1);
         $(".gem2").val(gemNum2);
-        console.log("gem2: " + gemNum2);
-
+        console.log(gemNum2);
+        // gem3
         gemNum3 = Math.floor((Math.random() * 12) + 1);
         $(".gem3").val(gemNum3);
-        console.log("gem3: " + gemNum3);
-
+        console.log(gemNum3);
+        // gem4
         gemNum4 = Math.floor((Math.random() * 12) + 1);
-        $(".gem4").val(gemNum4); 
-        console.log("gem4: " + gemNum4);
-        
+        $(".gem4").val(gemNum4);
+        console.log(gemNum4); 
         // set amount stolen to 0
         stolen = 0;
         $("#amount-stolen").text(stolen);
@@ -137,13 +135,16 @@ var highNoonHeist = {
     // displays game over screen
     endGame: function () {
         if (stolen > ransomNum) {
-            caught.play();
             themeSong.pause();
             sleepySherrif.pause();
+            caught.play();
             $(".playable").css("display", "none");
-            $(".endgame-loss").fadeIn();   
+            $(".endgame-loss").fadeIn();  
+            console.log("LOST");
         }
         else if (stolen === ransomNum) {
+            themeSong.pause();
+            sleepySherrif.pause();
             $(".playable").css("display", "none");
             $(".endgame-win").fadeIn();   
         }
@@ -158,6 +159,8 @@ var highNoonHeist = {
             loss++;
             $(".loss-num").text(loss);
             highNoonHeist.initialiseGame();
+            highNoonHeist.playTheme();
+            highNoonHeist.playSnore();
         });
     },
 
@@ -170,6 +173,8 @@ var highNoonHeist = {
             win++;
             $(".wins-num").text(win);
             highNoonHeist.initialiseGame();
+            highNoonHeist.playTheme();
+            highNoonHeist.playSnore();
         });
     },
 
@@ -177,13 +182,21 @@ var highNoonHeist = {
     mainMenu: function () {
         $(".main").click(function () {
             $(".endgame-loss").css("display", "none");
+            $(".endgame-win").css("display","none");
             $(".main-menu").fadeIn();
+            sleepySherrif.pause();
+            highNoonHeist.playTheme();
         })
     },
 
     playTheme: function () {
         themeSong.loop = true;
         themeSong.play();
+    },
+
+    playSnore: function () {
+        sleepySherrif.loop = true;
+        sleepySherrif.play();
     }
 
 }
