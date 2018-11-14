@@ -23,4 +23,4 @@
 
 4.	If you take too much money, the sheriff will wake up and send you to jail. Game over.
 
-5.	Each time the game starts, the value of the jewels and the ransom will change.  
+5.	Each time the game starts, the value of the jewels and the ransom will change. 
