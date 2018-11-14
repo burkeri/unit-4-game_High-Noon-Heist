@@ -61,8 +61,6 @@ var highNoonHeist = {
         })
     },
 
-    // -------------------------------------------------------------------------
-
     // resets score (win/loss) to 0
     resetScore: function () {
         let win = 0;
@@ -80,19 +78,15 @@ var highNoonHeist = {
         // gem1
         gemNum1 = Math.floor((Math.random() * 12) + 1);
         $(".gem1").val(gemNum1);
-        console.log(gemNum1);
         // gem2
         gemNum2 = Math.floor((Math.random() * 12) + 1);
         $(".gem2").val(gemNum2);
-        console.log(gemNum2);
         // gem3
         gemNum3 = Math.floor((Math.random() * 12) + 1);
         $(".gem3").val(gemNum3);
-        console.log(gemNum3);
         // gem4
         gemNum4 = Math.floor((Math.random() * 12) + 1);
         $(".gem4").val(gemNum4);
-        console.log(gemNum4); 
         // set amount stolen to 0
         stolen = 0;
         $("#amount-stolen").text(stolen);
@@ -140,7 +134,6 @@ var highNoonHeist = {
             caught.play();
             $(".playable").css("display", "none");
             $(".endgame-loss").fadeIn();  
-            console.log("LOST");
         }
         else if (stolen === ransomNum) {
             themeSong.pause();
@@ -201,6 +194,10 @@ var highNoonHeist = {
 
 }
 
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// FUNCTION CALLS
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 highNoonHeist.playTheme();
 highNoonHeist.enterPrologue();
 highNoonHeist.enterPlayable();
@@ -209,103 +206,6 @@ highNoonHeist.playAgain();
 highNoonHeist.mainMenu();
 
 });
-
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// FUNCTIONS
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// ++++++++++++++++++++++++++++++++++ Prologue
-
-// ++++++++++++++++++++++++++++++++++ Gameplay
-
-
-
-// // ends the game on loss
-// function gameOver () {
-    // if (stolen > ransomNum) {
-    //     $(".playable").css("display", "none");
-    //     $(".endgame-loss").fadeIn();
-    // }   
-// }
-
-// // takes playerback to main menu
-
-// // add gem values to amount stolen and plays clink, calls loss/win function
-// function stolenGems () {
-
-//     $(".gem2").click(function () {
-//         soundEffect.play();        
-//         stolen = gemNum2 + stolen;
-//         $("#amount-stolen").text(stolen);
-//         setTimeout(gameOver, 1000);
-//     });
-//     $(".gem3").click(function () {
-//         soundEffect.play();        
-//         stolen = gemNum3 + stolen;
-//         $("#amount-stolen").text(stolen);
-//         setTimeout(gameOver, 1000);
-//     });
-//     $(".gem4").click(function () {
-//         soundEffect.play();        
-//         stolen = gemNum4 + stolen;
-//         $("#amount-stolen").text(stolen);
-//         setTimeout(gameOver, 1000);
-//     });  
-// }
-
-// // starts the game
-// function intialiseGame () {
-
-//     pickettRansom();
-//     $("#ransom-number").text(ransomNum);
-//     gemValue();
-//     stolenGems();
-//     $("#amount-stolen").text(stolen);
-//     gameOver();
-// }
-
-// // resarts game after loss
-// function tryAgain () {
-//     $(".try-again").click(function (){
-//         $(".endgame-loss").css("display", "none");
-//         initialiseGame();
-//         loss++
-//         $(".loss-num").text(loss);
-//     })
-// }
-
-
-// // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// // GAME MECHANICS
-// // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-// // DONT FORGET DOCUMENT.READY
-
-// //displays the prologue when you press the start button
-// enterPrologue();
-
-// // starts main gameplay when prolouge "play" button is clicked
-// $(".play-button").click(function () {
-//     intialiseGame();
-// })
-
-
-
-
-// // restarts the game after a loss, adds 1 loss
-// tryAgain();
-
-
-// FIX INITIALISEGAME DO NOT MAKE IT DEPENDENT ON BUTTON CLICK 
-
-
-// ToDo:
-//  - document.ready the whole thing
-// add music to main menu
-// add back button in prologue
-// add shout when sherrif wakes up - endgame-loss
-// take off outline on menu start button
 
 
 
