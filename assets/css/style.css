@@ -15,10 +15,6 @@ body, html {
     margin: 0 auto;
 }
 
-/* .main-menu {
-    display: none;
-} */
-
 .playable {
     display: none;
 }
@@ -224,7 +220,7 @@ body, html {
     display: none;
 }
 
-.endgame-loss-header {
+.endgame-loss-header, .endgame-win-header {
     text-align: center;
     font-family: 'Rye';
     color: navajowhite;
@@ -232,17 +228,22 @@ body, html {
     padding-top: 40px;
 }
 
-.endgame-loss-text {
+.endgame-loss-text, .endgame-win-text {
     text-align: center;
     font-family: 'Neucha';
     color: navajowhite;
     font-size: 30px;
 } 
 
-.jail {
+.jail, .sunset {
     display: block;
     margin: 0 auto;
     padding: 40px 0px 40px 0px;
+}
+
+
+.sunset {
+    width: 40%;
 }
 
 .buttons {
@@ -250,7 +251,7 @@ body, html {
     padding-top: 10px;
 }
 
-.main, .try-again {
+.main, .try-again, .play-again {
     border: none;
     background-color: wheat;
     color: rgba(0, 0, 0, .8);
@@ -262,6 +263,6 @@ body, html {
     margin: 10px 10px 10px 10px;
 }
 
-.main:hover, .try-again:hover {
+.main:hover, .try-again:hover, .play-again:hover {
     background-color: rgb(207, 179, 138);
 }
